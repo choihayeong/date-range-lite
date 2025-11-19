@@ -1,0 +1,48 @@
+:root {
+  // font
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+    'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    system-ui, sans-serif;
+
+  // Text Colors - 텍스트 색상
+  --text-color-primary: #222;
+  --text-color-secondary: #333;
+  --text-color-tertiary: #898d93;
+  --text-color-disabled: #d6dbe1;
+  --text-color-white: #fff;
+  --text-color-link: #1f5cf8;
+  --text-color-error: #f12e24;
+
+  // Common Colors - 공통 색상
+  --color-white: #fff;
+  --color-bg-disabled: #f8f9fc;
+  --color-bg-hover-gray: #eff1f4;
+  --color-bg-hover-blue: #eaf4ff;
+  --color-bg-selected: #e0edff;
+  --color-primary: #1f5cf8;
+  --color-primary-hover: #003ea7;
+  --color-primary-disabled: #c4ddff;
+  --color-disabled: #d6dbe1;
+  --color-border-default: #e6eaef;
+  --color-border-light: #e0e0e0;
+  --color-border-input: #d0d3d9;
+  --color-error: #f12e24;
+  --color-icon-secondary: #898d93;
+  --color-shadow: rgba(0, 0, 0, 0.2);
+
+  // Background Colors - 배경 색상
+  --bg-color-toggle-bar: #333;
+  --bg-color-toggle-off: #a5a9af;
+
+  // font-size
+  --font-size-26: 26px;
+  --font-size-20: 20px;
+  --font-size-16: 16px;
+  --font-size-14: 14px;
+  --font-size-12: 12px;
+
+  // font-weight
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+}

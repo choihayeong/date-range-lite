@@ -1,3 +1,6 @@
+@use "variables";
+@use "base";
+
 // [공통]
 .date-picker-container {
   position: relative;
@@ -11,7 +14,7 @@
   gap: var(--date-input-container-gap, 20px);
   padding-block: var(--date-input-container-padding-block, 8px);
   padding-inline: var(--date-input-container-padding-start, 12px) var(--date-input-container-padding-end, 42px);
-  border: 1px solid var(--grid-line-muted-gray);
+  border: 1px solid var(--color-border-default);
   border-radius: var(--date-input-border-radius, 8px);
   background: #fff;
 
@@ -23,37 +26,37 @@
     transform: translateY(-50%);
     width: 16px;
     height: 14px;
-    background-color: var(--text-color-default);
+    background-color: var(--text-color-primary);
     mask-repeat: no-repeat;
     mask-position: center;
     mask-size: contain;
   }
 
   &:hover {
-    border-color: #1f5cf8;
+    border-color: var(--color-primary);
 
     &::after {
-      background-color: #1f5cf8;
+      background-color: var(--color-primary);
     }
   }
 
   &.is-focused {
-    border-color: #1f5cf8;
+    border-color: var(--color-primary);
 
     .date-preset-label {
-      color: var(--text-color-default);
+      color: var(--text-color-primary);
     }
   }
 
   &.disabled {
-    --date-input-text-color: #d6dbe1;
+    --date-input-text-color: var(--text-color-disabled);
 
-    border-color: var(--grid-line-muted-gray);
-    background-color: var(--date-input-disabled-bg, #f8f9fc);
+    border-color: var(--color-border-default);
+    background-color: var(--date-input-disabled-bg, var(--color-bg-disabled));
     cursor: not-allowed;
 
     &::after {
-      background-color: #d6dbe1;
+      background-color: var(--color-disabled);
     }
   }
 }
@@ -76,7 +79,7 @@
 
 .date-preset-label {
   position: relative;
-  color: var(--text-color-gray);
+  color: var(--text-color-tertiary);
   font-size: 14px;
   font-weight: var(--font-medium);
   white-space: nowrap;
@@ -89,7 +92,7 @@
     width: 1px;
     height: 14px;
     margin-top: -7px;
-    background: var(--grid-line-muted-gray);
+    background: var(--color-border-default);
   }
 
   &.is-hidden {
@@ -102,20 +105,20 @@
   flex: 0 1 auto;
   width: var(--date-input-width);
   min-width: var(--date-input-min-width, 134px);
-  color: var(--date-input-text-color, var(--text-color-gray));
+  color: var(--date-input-text-color, var(--text-color-tertiary));
   font-size: var(--date-input-font-size, 14px);
   font-weight: var(--font-medium);
 
   &:hover {
-    border-color: #1f5cf8;
+    border-color: var(--color-primary);
   }
 
   &:focus {
     outline: none;
-    color: var(--text-color-default);
+    color: var(--text-color-primary);
 
     & + .date-preset-label {
-      color: var(--text-color-default);
+      color: var(--text-color-primary);
     }
   }
 
@@ -124,7 +127,7 @@
   }
 
   &:disabled {
-    color: #d6dbe1;
+    color: var(--text-color-disabled);
   }
 }
 
@@ -198,7 +201,7 @@
   font-size: var(--month-label-font-size, 16px);
   line-height: var(--month-label-line-height, 28px);
   font-weight: var(--font-semi-bold);
-  color: var(--month-label-color, var(--color-default-text));
+  color: var(--month-label-color, var(--text-color-primary));
 }
 
 .calendar-grid {
@@ -210,14 +213,14 @@
     text-align: center;
     font-size: var(--weekday-font-size, 14px);
     font-weight: var(--font-regular);
-    color: var(--weekday-color, var(--text-color-gray));
+    color: var(--weekday-color, var(--text-color-tertiary));
     line-height: var(--weekday-line-height, 30px);
   }
 
   .day {
     position: relative;
     aspect-ratio: 1;
-    color: var(--day-color, var(--color-default-text));
+    color: var(--day-color, var(--text-color-primary));
     border-radius: 50%;
     font-size: var(--day-font-size, 14px);
     cursor: pointer;
@@ -227,16 +230,16 @@
 
   .day.selected {
     color: var(--today-text-color, #fff) !important;
-    background: var(--today-bg, #1f5cf8) !important;
+    background: var(--today-bg, var(--color-primary)) !important;
     font-weight: var(--font-semi-bold);
   }
 
   .day:hover:not(:disabled):not(.other-month) {
-    background: var(--day-hover-bg, #e0edff);
+    background: var(--day-hover-bg, var(--color-bg-selected));
   }
 
   .day.other-month {
-    color: var(--other-month-day-color, #d6dbe1);
+    color: var(--other-month-day-color, var(--text-color-disabled));
     cursor: default;
 
     &::before {
@@ -253,7 +256,7 @@
 
   .day.selected:not(.other-month) {
     color: var(--today-text-color, #fff) !important;
-    background: var(--today-bg, #1f5cf8) !important;
+    background: var(--today-bg, var(--color-primary)) !important;
     font-weight: var(--font-semi-bold);
   }
 
@@ -284,17 +287,17 @@
 
   // 🔹 범위 안 날짜 (중간 구간)
   .day.in-range:not(.range-start):not(.range-end)::before {
-    background: var(--day-range-bg, #e0edff);
+    background: var(--day-range-bg, var(--color-bg-selected));
   }
 
   // 🔹 범위 시작
   .day.range-start.in-range::before {
-    background: var(--day-range-bg, #e0edff);
+    background: var(--day-range-bg, var(--color-bg-selected));
     left: 50%;
     right: -5px;
   }
   .day.range-start::after {
-    background: var(--day-range-bg, #1f5cf8);
+    background: var(--day-range-bg, var(--color-primary));
     left: 0;
     right: 0;
     border-radius: 50%;
@@ -302,12 +305,12 @@
 
   // 🔹 범위 끝
   .day.range-end::before {
-    background: var(--day-range-bg, #e0edff);
+    background: var(--day-range-bg, var(--color-bg-selected));
     left: -5px;
     right: 50%;
   }
   .day.range-end::after {
-    background: var(--day-range-bg, #1f5cf8);
+    background: var(--day-range-bg, var(--color-primary));
     left: 0;
     right: 0;
     height: 100%;
@@ -318,7 +321,7 @@
   }
 
   .day.disabled {
-    --day-color: var(--text-color-muted-gray);
+    --day-color: var(--text-color-disabled);
 
     cursor: not-allowed;
     text-decoration: line-through;
@@ -327,7 +330,7 @@
 
 .picker-footer {
   padding-block: var(--picker-footer-padding-block, 12px);
-  border-top: 1px solid var(--picker-footer-border-color, #e6eaef);
+  border-top: 1px solid var(--picker-footer-border-color, var(--color-border-default));
   text-align: center;
 }
 
@@ -360,7 +363,7 @@
 .presets__button {
   width: 100%;
   padding: var(--presets-button-padding, 8px 10px);
-  color: var(--presets-button-color, var(--text-color-gray));
+  color: var(--presets-button-color, var(--text-color-tertiary));
   border-radius: var(--presets-button-border-radius, 8px);
   font-size: var(--presets-button-font-size, 14px);
   font-weight: var(--font-medium);
@@ -369,13 +372,13 @@
   white-space: nowrap;
 
   &:hover {
-    background: var(--presets-button-active-bg, #eaf4ff);
+    background: var(--presets-button-active-bg, var(--color-bg-hover-blue));
   }
 }
 
 .presets__button.active {
-  color: var(--presets-button-active-color, #1f5cf8);
-  background: var(--presets-button-active-bg, #eaf4ff);
+  color: var(--presets-button-active-color, var(--color-primary));
+  background: var(--presets-button-active-bg, var(--color-bg-hover-blue));
 }
 
 .presets-apply {
@@ -395,7 +398,7 @@
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background: var(--year-month-list-scrollbar-thumb-bg, #d6dbe1);
+    background: var(--year-month-list-scrollbar-thumb-bg, var(--color-disabled));
   }
 }
 .year-month-section {
@@ -426,7 +429,7 @@
 .month-button {
   width: var(--month-button-size, 30px);
   height: var(--month-button-size, 30px);
-  color: var(--month-button-color, var(--color-default-text));
+  color: var(--month-button-color, var(--text-color-primary));
   border-radius: 50%;
   font-size: var(--month-button-font-size, 14px);
   cursor: pointer;
@@ -436,18 +439,18 @@
   }
 
   &.selected {
-    background: var(--month-button-selected-bg, #1f5cf8);
+    background: var(--month-button-selected-bg, var(--color-primary));
     color: var(--month-button-selected-color, #fff);
     font-weight: var(--font-semi-bold);
   }
 
   &.current {
-    border: 1px solid var(--month-button-current-border-color, #1f5cf8);
+    border: 1px solid var(--month-button-current-border-color, var(--color-primary));
     font-weight: var(--font-semi-bold);
   }
 
   &.disabled {
-    --month-button-color: var(--text-color-muted-gray);
+    --month-button-color: var(--text-color-disabled);
 
     text-decoration: line-through;
     cursor: not-allowed;
@@ -462,7 +465,7 @@
 .time-picker__header {
   height: var(--time-picker-header-height, 28px);
   padding-inline: var(--time-picker-header-padding-inline, 10px);
-  color: var(--time-picker-header-color, var(--text-color-blue));
+  color: var(--time-picker-header-color, var(--text-color-primary));
   font-size: var(--time-picker-header-font-size, 16px);
   line-height: var(--time-picker-header-line-height, 28px);
   font-weight: var(--font-medium);
@@ -478,9 +481,9 @@
 }
 .time-column__label {
   padding-block: var(--time-column-label-padding-block, 6px);
-  color: var(--time-column-label-color, var(--text-color-gray));
+  color: var(--time-column-label-color, var(--text-color-tertiary));
   border-radius: var(--time-column-label-border-radius, 8px);
-  background-color: var(--time-column-label-bg, #f8f9fc);
+  background-color: var(--time-column-label-bg, var(--color-bg-disabled));
   font-size: var(--time-column-label-font-size, 14px);
   line-height: var(--time-column-label-line-height, 24px);
   font-weight: var(--font-medium);
@@ -495,22 +498,22 @@
 
   &::-webkit-scrollbar {
     width: 8px;
-    background-color: #f8f9fc;
+    background-color: var(--color-bg-disabled);
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background: var(--year-month-list-scrollbar-thumb-bg, #d6dbe1);
+    background: var(--year-month-list-scrollbar-thumb-bg, var(--color-disabled));
   }
 }
 .time-option {
   padding-block: var(--time-option-padding-block, 10px);
   padding-inline: var(--time-option-padding-inline, 8px);
-  color: var(--time-option-color, var(--text-color-default));
+  color: var(--time-option-color, var(--text-color-primary));
   border-radius: var(--time-option-border-radius, 8px);
   font-size: var(--time-option-font-size, 14px);
   font-weight: var(--font-medium);
 }
 .time-option.selected {
   color: var(--time-option-selected-color, #fff);
-  background-color: var(--time-option-selected-bg, #1f5cf8);
+  background-color: var(--time-option-selected-bg, var(--color-primary));
 }
