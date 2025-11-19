@@ -18,6 +18,14 @@
     "dist/",
     "src/"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choihayeong/date-range-lite.git"
+  },
+  "bugs": {
+    "url": "https://github.com/choihayeong/date-range-lite/issues"
+  },
+  "homepage": "https://github.com/choihayeong/date-range-lite#readme",
   "scripts": {
     "init:structure": "node scripts/init-structure.js",
     "build:css": "sass src/styles/date-range-lite.scss dist/date-range-lite.css --no-source-map",
