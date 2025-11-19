@@ -22,6 +22,37 @@ npm install date-range-lite
 
 ### DualDatePicker (Range Selection)
 
+```html
+<div class="date-picker-container">
+  <div class="date-input-container date-input-container--dual">
+    <span class="date-preset-label" id="presetLabel">날짜 선택 범위</span>
+    <input type="text" id="dualRangeInput" class="date-input" placeholder="날짜를 선택하세요" readonly />
+  </div>
+
+  <div class="picker-dropdown" id="dualRangeDropdown">
+    <div class="picker-content">
+      <div class="dual-calendars">
+        <div class="each-calendar" id="leftCalendar"></div>
+        <div class="each-calendar" id="rightCalendar"></div>
+      </div>
+
+      <div class="presets-container">
+        <div class="presets">
+          <button class="presets__button" data-preset="yesterday">어제</button>
+          <button class="presets__button" data-preset="today">오늘</button>
+          <button class="presets__button" data-preset="last7">최근 7일</button>
+          <button class="presets__button" data-preset="last30">최근 30일</button>
+          <button class="presets__button" data-preset="prevW">지난주</button>
+          <button class="presets__button" data-preset="thisM">이번달</button>
+          <button class="presets__button" data-preset="prevM">지난달</button>
+        </div>
+        <button class="button button--fit button--primary presets-apply" id="applyPreset">적용</button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
 ```javascript
 import { DualDatePicker } from "date-range-lite";
 
@@ -37,6 +68,22 @@ new DualDatePicker({
 
 ### MonthPicker
 
+```html
+<div class="date-picker-container">
+  <div class="date-input-container">
+    <input type="text" id="monthPicker" class="date-input" placeholder="기준 월을 선택하세요" readonly />
+  </div>
+
+  <div class="picker-dropdown" id="yearMonthDropdown">
+    <div class="year-month-list" id="yearMonthList"></div>
+
+    <div class="picker-footer">
+      <button class="ui-button ui-button--primary" id="applyYearMonth">적용</button>
+    </div>
+  </div>
+</div>
+```
+
 ```javascript
 import { MonthPicker } from "date-range-lite";
 
@@ -50,6 +97,18 @@ new MonthPicker({
 
 ### DefaultDatePicker
 
+```html
+<div class="date-picker-container">
+  <div class="date-input-container">
+    <input type="text" id="singleDatePicker" class="date-input" placeholder="날짜를 선택하세요" readonly />
+  </div>
+
+  <div class="picker-dropdown" id="singleCalendarDropdown">
+    <div class="each-calendar" id="singleCalendar"></div>
+  </div>
+</div>
+```
+
 ```javascript
 import { DefaultDatePicker } from "date-range-lite";
 
@@ -62,6 +121,21 @@ new DefaultDatePicker({
 ```
 
 ### TimePicker
+
+```html
+<div class="date-picker-container">
+  <div class="date-input-container">
+    <input type="text" id="timePicker" class="time-input" placeholder="HH:MM" readonly />
+  </div>
+
+  <div class="picker-dropdown" id="timeDropdown">
+    <div class="time-list" id="timeList"></div>
+    <div class="picker-footer">
+      <button class="ui-button ui-button--primary" id="applyTime">적용</button>
+    </div>
+  </div>
+</div>
+```
 
 ```javascript
 import { TimePicker } from "date-range-lite";
