@@ -111,7 +111,7 @@ export const DateUtils = {
 
 writeIfNotExists(
   path.join(srcDir, 'core-utils.js'),
-  `// DateRangeX 공통 유틸
+  `// DateRangeLite 공통 유틸
 export function closeAllPickers(exceptId) {
   document.querySelectorAll('.picker-dropdown.open').forEach(dd => {
     if (!exceptId || dd.id !== exceptId) {
@@ -153,9 +153,9 @@ writeIfNotExists(path.join(srcDir, 'time-picker.js'), `// export function TimePi
 
 // SCSS 기본 파일
 writeIfNotExists(
-  path.join(stylesDir, 'daterangex.scss'),
-  `/* DateRangeX 기본 스타일 (SCSS)
-   * 브룩이 만든 캘린더/타임피커 SCSS 여기로 붙여넣기
+  path.join(stylesDir, 'date-range-lite.scss'),
+  `/* DateRangeLite 기본 스타일 (SCSS)
+   * TODO: 캘린더/타임피커 SCSS 여기로 붙여넣기
    */
 
 .date-picker-container {
@@ -167,4 +167,4 @@ writeIfNotExists(
 `
 );
 
-console.log('✅ DateRangeX 기본 구조 생성 완료');
+console.log('✅ DateRangeLite 기본 구조 생성 완료');
