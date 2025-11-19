@@ -1,0 +1,48 @@
+{
+  "name": "date-range-lite",
+  "version": "0.0.1",
+  "description": "A modular, lightweight date/time picker library with support for range selection, month selection, single date selection, and time selection.",
+  "main": "dist/date-range-lite.cjs.js",
+  "module": "dist/date-range-lite.esm.js",
+  "types": "dist/index.d.ts",
+  "style": "dist/date-range-lite.css",
+  "exports": {
+    ".": {
+      "import": "./dist/date-range-lite.esm.js",
+      "require": "./dist/date-range-lite.cjs.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": "./dist/date-range-lite.css"
+  },
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "scripts": {
+    "init:structure": "node scripts/init-structure.js",
+    "build:css": "sass src/styles/date-range-lite.scss dist/date-range-lite.css --no-source-map",
+    "build:js": "rollup -c",
+    "build": "npm run build:css && npm run build:js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "date-picker",
+    "range-picker",
+    "month-picker",
+    "time-picker",
+    "calendar",
+    "date-range",
+    "javascript",
+    "vanilla-js"
+  ],
+  "author": "brooksy",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^4.53.2",
+    "sass": "^1.94.1",
+    "typescript": "^5.9.3"
+  }
+}
