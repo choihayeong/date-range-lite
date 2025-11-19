@@ -1,6 +1,6 @@
 {
   "name": "date-range-lite",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A modular, lightweight date/time picker library with support for range selection, month selection, single date selection, and time selection.",
   "main": "dist/date-range-lite.cjs.js",
   "module": "dist/date-range-lite.esm.js",
